@@ -1,5 +1,6 @@
 package com.theucsrocha.workshopmongo.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class PostService {
 	    } else {
 	        throw new ObjectNotFoundException("Objeto não encontrado");
 	    }
+	}
+	
+	public List<Post> findByTitle(String text){
+		return repo.findByTitleContaining(text);
 	}
 	
 
